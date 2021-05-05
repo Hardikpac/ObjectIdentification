@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+    <title>{%block title%}Sarvagya{% endblock %}</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #296968;
+        color: white;
+        text-align: center;}
+    </style>
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid text-white bg-dark">
+        <div class="container">
+            <h1 class="display-4 text-center">SARVAGYA</h1>
+            <p class="lead">An image recognition and prediction system build on the Deep Learning and Neural Network model.
+            Just upload the image and the algorithm will match the image with millions of images to predict top 3 result along with their 
+            percentage, how much they match!</p>
+        </div>
+    </div>
+    {% block content %}
+    <form action="imageprocess/" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class='row'>
+            <div class="col-md-2 form-group offset-4 p-1">
+                <input id="image" class="form-control-file" type="file" name="image"/>
+            </div>
+            <div class="col-md-5 offset-1 form-group">
+                <input type="submit" class="btn btn-primary" value="Submit">
+            </div>
+        </div>
+    </form>
+    {% endblock content %}
+    <div class="footer">
+        <p class='lead'>&lt;/&gt; Hardik Pachory</p>
+    </div>
+</body>

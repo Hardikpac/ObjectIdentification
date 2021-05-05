@@ -1,0 +1,7 @@
+{% extends 'home.html' %}
+{% block title %}Prediction Result{% endblock %}
+{% block content %}
+    {% for r,p in res%}
+        <p class='lead text-center'>{{r}} : {{p}}% </p><br/>
+    {% endfor %}
+{% endblock content %}
